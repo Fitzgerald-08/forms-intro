@@ -62,17 +62,17 @@
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <br>
-            Name: <input type="text" name="name">
+            Name: <input type="text" name="name" value="<?php echo $name; ?>">
             <span class="error">* <?php echo $nameErr; ?></span> 
             <br><br>
-            E-mail: <input type="text" name="email">
+            E-mail: <input type="text" name="email" value="<?php echo $email; ?>">
             <span class="error">* <?php echo $emailErr; ?></span> 
             <br><br>
-            Website: <input type="text" name="website"><br><br>
-            Comment: <textarea type="text" name="comment" cols="35" rows="3"></textarea><br><br>
+            Website: <input type="text" name="website" value="<?php echo $website; ?>"><br><br>
+            Comment: <textarea type="text" name="comment" cols="35" rows="3"><?php echo $comment ?></textarea><br><br>
             Gender:
-            <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="male" <?php if (isset($gender) && $gender == "male") echo "checked" ?>>Male
+            <input type="radio" name="gender" value="female" <?php if (isset($gender) && $gender == "female") echo "checked" ?>>Female
             <span class="error">* <?php echo $genderErr; ?></span> 
             <br><br>
             <input type="submit">
@@ -80,7 +80,11 @@
         </form>
 
         <?php
-        echo "$name // $email // $website // $comment // $gender";
+        echo "Name: <strong>$name</strong>\n<br>";
+        echo "E-mail: <strong>$email</strong>\n<br>";
+        echo "URL: <strong>$website</strong>\n<br>";
+        echo "Your comment: <strong>$comment</strong>\n<br>";
+        echo "You identified yourself as: <strong>$gender</strong>\n<br>";
         ?>
     </body>
 </html>
